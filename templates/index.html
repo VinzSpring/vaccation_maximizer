@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <!--vacation recommendations test page-->
+    <head>
+        <title>Vacation recommendations</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    
+    <!--http://localhost:5000/vacation?start=2018-12-01&end=2018-12-31&max_len=10&min_len=3&max_non_holiday_days=3&country=DE&sub_region=SN-->
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Ferien Empfehlungen</h1>
+                    <p>
+                        Wir werden versuchen, die Ferien zu finden, die insgesamt den höchsten Prozentsatz an Feiertagen haben.
+                    </p>
+                    <p>
+                        Geben Sie Ihre Urlaubsvorlieben ein und erhalten Sie eine Liste mit empfohlenen Ferien.
+                    </p>
+                    <form action="/vacation" method="get">
+                        <div class="form-group">
+                            <label for="start">Start:</label>
+                            <input type="date" class="form-control" id="start" name="start" value="2018-12-01">
+                        </div>
+                        <div class="form-group">
+                            <label for="end">Ende:</label>
+                            <input type="date" class="form-control" id="end" name="end" value="2018-12-31">
+                        </div>
+                        <div class="form-group">
+                            <label for="max_len">Maximale Länge eines Teilurlaubs:</label>
+                            <input type="number" class="form-control" id="max_len" name="max_len" value="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="min_len">Minimale Länge eines Teilurlaubs:</label>
+                            <input type="number" class="form-control" id="min_len" name="min_len" value="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="max_non_holiday_days">Maximale Anzahl von nicht-Feiertagen im gesamten Zeitraum:</label>
+                            <input type="number" class="form-control" id="max_non_holiday_days" name="max_non_holiday_days" value="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Land:</label>
+                            <input type="text" class="form-control" id="country" name="country" value="DE">
+                        </div>
+                        <div class="form-group">
+                            <label for="sub_region">Region:</label>
+                            <input type="text" class="form-control" id="sub_region" name="sub_region" value="SN">
+                        </div>
+                        <button type="submit" class="btn btn-default">Urlaub optimieren</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

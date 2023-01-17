@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- Path: templates\results.html -->
+<!--recs 
+    Flask template to render results of vacation recommendations:
+[{"end":"Wed, 26 Dec 2018 00:00:00 GMT","n_days":5,"n_holidays":4,"ratio":0.8,"start":"Sat, 22 Dec 2018 00:00:00 GMT"},{"end":"Sun, 30 Dec 2018 00:00:00 GMT","n_days":9,"n_holidays":6,"ratio":0.6666666666666666,"start":"Sat, 22 Dec 2018 00:00:00 GMT"},{"end":"Wed, 26 Dec 2018 00:00:00 GMT","n_days":3,"n_holidays":2,"ratio":0.6666666666666666,"start":"Mon, 24 Dec 2018 00:00:00 GMT"},{"end":"Sun, 30 Dec 2018 00:00:00 GMT","n_days":6,"n_holidays":4,"ratio":0.6666666666666666,"start":"Tue, 25 Dec 2018 00:00:00 GMT"},{"end":"Mon, 31 Dec 2018 00:00:00 GMT","n_days":3,"n_holidays":2,"ratio":0.6666666666666666,"start":"Sat, 29 Dec 2018 00:00:00 GMT"}]
+-->
+
+<html>
+    <!--render results -->
+    <head>
+        <title>vacation recommendations</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Ferienplaner</h1>
+                    <p>Hier sind die Ergebnisse:</p>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Start</th>
+                                <th>Ende</th>
+                                <th>Länge</th>
+                                <th>Anzahl Feiertage</th>
+                                <th>Prozent Feiertage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for rec in recs %}
+                            <tr>
+                                <td>{{ rec.start }}</td>
+                                <td>{{ rec.end }}</td>
+                                <td>{{ rec.n_days }}</td>
+                                <td>{{ rec.n_holidays }}</td>
+                                <td>{{ (rec.ratio * 100)|round }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <p>
+                        <a href="/">Zurück</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
